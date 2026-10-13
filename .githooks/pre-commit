@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+
+if ! command -v repora >/dev/null 2>&1; then
+    echo "REPORA was not found on PATH. Run cargo install --path TOOL_DIRECTORY --bin repora first." >&2
+    exit 2
+fi
+
+exec repora scan . --staged --fail-on-findings

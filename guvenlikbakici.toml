@@ -1,0 +1,14 @@
+# Project self-scan: exceptions apply only to synthetic regression fixtures.
+# Terminal screenshots are documentation assets, outside text-analysis scope.
+exclude = ["reports/**", "docs/assets/**"]
+disabled_rules = []
+
+[[exceptions]]
+rule = "hardcoded-secret"
+path = "tests/cli.rs"
+reason = "Synthetic password values used by CLI regression tests; not real credentials."
+
+[[exceptions]]
+rule = "private-key"
+path = "tests/cli.rs"
+reason = "Header used to test the private-key detector; no key body is present."
